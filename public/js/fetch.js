@@ -1,4 +1,4 @@
-const fetch = (url, cb) => {
+const  fetchdata = (url, cb) => {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
     if (xhr.readyState === 4) {
@@ -7,8 +7,8 @@ const fetch = (url, cb) => {
         cb(data);
       }
     }
-    xhr.open('GET', url, true);
-    xhr.send();
   };
+  xhr.open('GET', url, true);
+  xhr.send();
 };
-module.exports = fetch;
+
