@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,20 +9,69 @@
     <!-- css links -->
     <link rel="stylesheet" href="./public/css/home.css">
 </head>
+
 <body>
-    <form action="" class="search-form">
-        <input type="search" class="search-input" placeholder="Get your book"> 
-        <input type="submit" value="Get Book" class="search-btn">
-    </form>
-    <div class="auto-Complete-container">
+    <header>
+        <h1 class="home-title"><a href="/">Books Station</a></h1>
+        <form action="" class="search-form">
+            <div class="auto-complete-input">
+                <input type="search" class="search-input" placeholder="Get your book">
+                 <div class="auto-Complete-container"> </div>
+            </div>
+            <input type="submit" value="Get Book" class="search-btn">
+        </form>
+    </header>
+    
 
-    </div>
-    <div class="cards">
+    <section class="suggested-books">
+        <h2 class="section-title">Suggested Books</h2>
+        <div class="suggested-cards">
+            <div class="card">
+                <img src="http://books.google.com/books/content?id=2ZiSCwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api"
+                    alt="Great Expectations">
+                <div class="card-content">
+                    <h3 class="title">Great Expectations</h3>
+                    <p class="lang">Language : <span>en</span></p>
+                    <p class="Publish">Publish : <span>1980-04-11</span></p><button class="btn">
+                        <a
+                            href="http://books.google.com/books?id=2ZiSCwAAQBAJ&amp;dq=great+expectaions&amp;hl=&amp;source=gbs_api">Read
+                            Now</a>
+                    </button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="http://books.google.com/books/content?id=qx8sDwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api"
+                    alt="Sherlock: The Blind Banker #3">
+                <div class="card-content">
+                    <h3 class="title">Sherlock: The Blind Banker #3</h3>
+                    <p class="lang">Language : <span>en</span></p>
+                    <p class="Publish">Publish : <span>2017-03-08</span></p>
+                    <button class="btn"><a
+                            href="http://books.google.com/books?id=qx8sDwAAQBAJ&amp;dq=sharlok&amp;hl=&ampsource=gbs_api">Read
+                            Now </a></button>
+                </div>
+            </div>
 
-    </div>
+            <div class="card"><img src="http://books.google.com/books/content?id=92lQfWj6_VIC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api" alt="Islam in the World">
+                <div class="card-content">
+                    <h3 class="title">Islam in the World</h3>
+                    <p class="lang">Language : <span>en</span></p>
+                    <p class="Publish">Publish : <span>2006</span></p><button class="btn">
+                        <a href="http://books.google.com/books?id=92lQfWj6_VIC&amp;dq=islam&amp;hl=&amp;source=gbs_api">Read
+                            Now</a></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="searched-books">
+        <h2 class="section-title">Searched Books</h2>
+        <div class="cards"></div>
+    </section>
+
 
     <script src="./public/js/fetch.js"></script>
     <script src="./public/js/script.js"></script>
 
 </body>
+
 </html>

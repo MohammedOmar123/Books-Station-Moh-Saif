@@ -17,18 +17,25 @@ const renderAutoSuggest = (data) => {
   })
 }
 
+
+
 const renderBooks = (data) => {
 
   cards.textContent = ''
   data.items.forEach(ele => {
     if (ele.volumeInfo.imageLinks) {
+      // card
       const card = document.createElement('div')
       card.classList.add('card')
 
+      // img
       const img = document.createElement('img')
-
       img.src = ele.volumeInfo.imageLinks.thumbnail
       img.alt = ele.volumeInfo.title
+
+      // card-content
+      const cardContent = document.createElement('div')
+      cardContent.classList.add('card-content')
 
       // Language
       const pLang = document.createElement('p')
@@ -41,14 +48,10 @@ const renderBooks = (data) => {
       pLang.appendChild(spanLang)
 
       // Title
-      const pTitle = document.createElement('p')
+      const pTitle = document.createElement('h3')
       pTitle.classList.add('title')
-      pTitle.textContent = 'Title : '
+      pTitle.textContent = ele.volumeInfo.title
 
-
-      const spanTitle = document.createElement('span')
-      spanTitle.textContent = ele.volumeInfo.title
-      pTitle.appendChild(spanTitle)
 
       // publish
       const pPublish = document.createElement('p')
@@ -66,17 +69,19 @@ const renderBooks = (data) => {
 
       const aLink = document.createElement('a')
       aLink.href = ele.volumeInfo.infoLink
-      aLink.textContent = 'Check The Book'
+      aLink.textContent = 'Read Now'
       btn.appendChild(aLink)
 
+      cardContent.appendChild(pTitle)
+      cardContent.appendChild(pLang)
+      cardContent.appendChild(pPublish)
+      cardContent.appendChild(btn)
+
+
       card.appendChild(img)
-      card.appendChild(pLang)
-      card.appendChild(pTitle)
-      card.appendChild(pPublish)
-      card.appendChild(btn)
+      card.appendChild(cardContent)
 
       cards.appendChild(card)
-
 
     }
   })
@@ -97,11 +102,12 @@ const getDataFromApi = (e, bookName) => {
 
 input.addEventListener('input', () => {
   if (input.value) {
-    console.log('ss');
     fetchData(`/books/${input.value}`,
       data => {
         renderAutoSuggest(data)
       })
+  }else{
+    autoContainer.textContent = ''
   }
 })
 
