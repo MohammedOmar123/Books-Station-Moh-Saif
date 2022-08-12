@@ -1,4 +1,4 @@
-const  fetchdata = (url, cb) => {
+const  fetchData = (url, cb) => {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
     if (xhr.readyState === 4) {
