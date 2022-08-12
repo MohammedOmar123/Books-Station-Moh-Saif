@@ -10,7 +10,7 @@ const router = (req, res) => {
         indexHandler(res);
     } 
     else if(endpoint === '/home'){
-        homeHandler(res)
+        homeHandler(res);
     }
     else if (endpoint.includes('public')) {
         publicHandler(res, endpoint);
