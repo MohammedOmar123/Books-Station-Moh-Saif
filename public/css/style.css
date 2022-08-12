@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #242121;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.intro {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-family: monospace, 'Arial';
+    font-size: 30px;
+    padding-left: 15px;
+    font-weight: bold;
+    line-height: 40px;
+    width: 70%;
+    text-align: center;
+}
+
+.desc {
+    font-size: 14px;
+    text-transform: capitalize;
+    line-height: 20px;
+    padding-left: 15px;
+    margin-top: 25px;
+    width: 70%;
+    color: rgba(255, 255, 255, 0.788);
+    text-align: center;
+}
+
+.btn-go {
+    color: #000;
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    margin: 35px auto;
+    padding: 0.6rem 1.7rem;
+transition: all 0.3s;
+}
+
+.btn-go:hover {
+    background-color: #000;
+    color: white;
+
+}
+
+.link {
+    text-decoration: none;
+}
+
+/* Desktop */
+@media (min-width:1200px) {
+    .content-container {
+        width: 65%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 60px;
+    }
+
+    .logo {
+        height: 400px;
+        width: 45%;
+    }
+
+    .intro {
+        margin-left: 2px;
+        height: 400px;
+        width: 45%;
+    }
+
+    div.intro p.title {
+        font-size: 35px;
+        margin-top: 100px;
+    }
+
+    div.intro p.desc {
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+    .btn-go {
+        margin-top: 30px;
+        padding: 0.8rem 2rem;
+    }
+
+}
+
+/* IPad */
+
+@media (min-width:767px) {
+    .content-container {
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: 90px;
+    }
+
+
+    .intro {
+        justify-content: center;
+    }
+}
