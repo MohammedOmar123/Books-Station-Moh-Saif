@@ -1,10 +1,9 @@
 const http = require('http');
 
-const port = process.env.PORT || 3000;
+const router = require('./router');  
 
-const server = http.createServer((req , res) => {
-    console.log(req)
-    res.end('<h1>Request is done</h1>');
-});
+const port = process.env.PORT || 8080;
 
-server.listen(port , () => console.log('Start listening'));
+const server = http.createServer(router);
+
+server.listen(port , () => console.log('Start listening '+port));
