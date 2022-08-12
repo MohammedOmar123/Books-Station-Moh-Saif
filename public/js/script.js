@@ -1,24 +1,32 @@
 const input = document.querySelector('.search-input');
 const submit = document.querySelector('.search-btn');
 const autoContainer = document.querySelector('.auto-Complete-container')
-const cards  = document.querySelector('.cards')
+const cards = document.querySelector('.cards')
 
 const renderAutoSuggest = (data) => {
-    autoContainer.textContent = '' 
-    data.forEach(ele => {
-      const p = document.createElement('p')
-      p.textContent = ele['bookName']
-      autoContainer.appendChild(p)
+  autoContainer.textContent = ''
+  data.forEach(ele => {
+    const p = document.createElement('p');
+    p.textContent = ele['bookName']
+    p.classList.add('book-suggestions');
+    p.addEventListener('click', (e) => {
+      getDataFromApi(e, e.target.textContent);
+      input.value = e.target.textContent;
     })
+    autoContainer.appendChild(p)
+  })
 }
 
 const renderBooks = (data) => {
-    cards.textContent = ''
-    data.items.forEach(ele => {
+
+  cards.textContent = ''
+  data.items.forEach(ele => {
+    if (ele.volumeInfo.imageLinks) {
       const card = document.createElement('div')
       card.classList.add('card')
 
       const img = document.createElement('img')
+
       img.src = ele.volumeInfo.imageLinks.thumbnail
       img.alt = ele.volumeInfo.title
 
@@ -31,9 +39,9 @@ const renderBooks = (data) => {
       const spanLang = document.createElement('span')
       spanLang.textContent = ele.volumeInfo.language
       pLang.appendChild(spanLang)
-      
+
       // Title
-      const pTitle= document.createElement('p')
+      const pTitle = document.createElement('p')
       pTitle.classList.add('title')
       pTitle.textContent = 'Title : '
 
@@ -43,7 +51,7 @@ const renderBooks = (data) => {
       pTitle.appendChild(spanTitle)
 
       // publish
-      const pPublish= document.createElement('p')
+      const pPublish = document.createElement('p')
       pPublish.classList.add('Publish')
       pPublish.textContent = 'Publish : '
 
@@ -55,7 +63,7 @@ const renderBooks = (data) => {
       // button
       const btn = document.createElement('button')
       btn.classList.add('btn')
-    
+
       const aLink = document.createElement('a')
       aLink.href = ele.volumeInfo.infoLink
       aLink.textContent = 'Check The Book'
@@ -70,26 +78,34 @@ const renderBooks = (data) => {
       cards.appendChild(card)
 
 
-    })
+    }
+  })
+}
+
+const getDataFromApi = (e, bookName) => {
+  e.preventDefault();
+  autoContainer.textContent = '';
+  if (!bookName) {
+    return;
+  }
+  const url = `https://www.googleapis.com/books/v1/volumes?q=${bookName}`
+  fetchData(url, (data) => {
+    renderBooks(data);
+  })
 }
 
 
 input.addEventListener('input', () => {
+  if (input.value) {
+    console.log('ss');
     fetchData(`/books/${input.value}`,
-        data => {
-            renderAutoSuggest(data)
-        })
+      data => {
+        renderAutoSuggest(data)
+      })
+  }
 })
 
-submit.addEventListener('click',(e) => {
-    e.preventDefault()
-    autoContainer.textContent = '' 
-    const value = input.value ;
-    if(!value){
-      return
-    }
-    const url = `https://www.googleapis.com/books/v1/volumes?q=${value}`
-    fetchData(url,(data) => {
-        renderBooks(data)
-    })
-  })
+submit.addEventListener('click', (e) => {
+  getDataFromApi(e, input.value);
+})
+
