@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const handler = (res, endpoint) => {
+    
     fs.readFile(path.join(__dirname, '../books.json'), (err, data) => {
         let value = endpoint.slice(endpoint.lastIndexOf('/') + 1)
         value = value.split('%20').join(' ')
