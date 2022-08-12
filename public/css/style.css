@@ -8,6 +8,7 @@ body{
     background-color: burlywood;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -37,4 +38,18 @@ body{
     align-items: center;
     border-radius: 5px;
     border: 1px solid black;
+}
+
+/* auto complete */
+.auto-Complete-container{
+    display: flex;
+    justify-content: center;
+    
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+.auto-Complete-container p{
+    width: 150px ;
+    background-color: #aaa;
 }
