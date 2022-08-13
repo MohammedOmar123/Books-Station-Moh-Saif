@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #2b2b2b;
+}
+
+.not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 50px;
+}
+
+h3 {
+    color: rgba(255, 255, 255);
+
+    margin-top: 15px;
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.755);
+    margin-top: 20px;
+}
+.btn-go {
+    color: #000;
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    margin: 35px auto;
+    padding: 0.6rem 1.7rem;
+    transition: all 0.3s;
+}
+
+.btn-go:hover {
+    background-color: #000;
+    color: white;
+
+}
