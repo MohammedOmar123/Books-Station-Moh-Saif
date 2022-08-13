@@ -56,54 +56,80 @@ header{
     gap: 15px;
     align-items: center;
     background-color: var(--secondaryColor);
-    padding: 10px 20px;
-    box-shadow:0px 4px 4px 0  #000000 ;
+    padding: 1rem 5rem;
+    box-shadow:0px 4px 5px 0  #222 ;
 }
 
 .search-form{
     display: flex;
     gap: 10px;
     width: 550px; 
-    border-radius: 5px;
+    position: relative;
+    outline: 1px solid #eee;
 }
 
 .search-input{
     width: 100%; 
-    padding: 6px;
-    border-radius: 5px;
+    padding: 0.6rem 2rem;
+    font-size: 1rem;
     border: 0ch;
     background-color: #353535;
     color: #808080;
+    color: #ddd;
 }
 .search-input::placeholder{
     color: #808080;
 }
 
 .search-btn{
-    width: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
-    background-color: #353535;
+    background-color: #eee;
     border: 0;
     color: #808080;
+    padding: 0 2rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    height: 100%;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 920px) {
     header .home-title{
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
     .search-form{
-        width: 320px 
+        width: 340px 
     }
 }
-@media (max-width: 500px) {
+@media (max-width: 655px) {
+    header .home-title{
+        font-size: 2rem;
+    }
     header {
         flex-wrap: wrap;
         justify-content: center;
     }
 }
+@media (max-width: 450px) {
+    header{
+        padding: 1rem 2rem;
+    }
+    .search-form {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .search-input{
+        padding: 0.6rem 1rem;
+    }
+    .search-btn{
+        padding: 0.8rem;
+    }
+    
+}
+
 /* auto complete */
 .auto-complete-input{
     width: 100%;
@@ -126,7 +152,7 @@ header{
     background-color: #555;
     color: #fff;
     padding: 7px;
-
+    cursor: pointer;
 }
 .auto-Complete-container p:hover{
     background-color: #777;
@@ -160,12 +186,18 @@ header{
     padding: 5px;
     position: relative;
 }
+.card:hover img{
+    transform: rotate(0deg) scale(1.2);
+
+
+}
 .card img{
     transform: rotate(-3deg);
     position: relative;
     left:8px;
     width: 140px;
     height: 205px;
+    transition: all 0.3s ease-in-out;
 }
 .card-content{
     overflow-y: auto;
@@ -188,7 +220,9 @@ header{
     display: block;
     padding: 5px 10px;
     margin: auto;
+    transition: all 0.3s ease-in-out;
 }
+
 .card-content p span{
     text-transform: capitalize;
 }
@@ -206,6 +240,36 @@ header{
 .card:nth-child(4n) .card-content{
     background-color:#f00d51 ;
 }
+
+.card:nth-child(1n) .card-content .btn:hover{
+    background-color: #42a8e4 ;
+    box-shadow: 0 0 10px 0 #42a8e4 , 0 0 20px 0 #42a8e4 ;
+    border: 1px solid #42a8e4 ;
+    padding: 10px 20px;
+    border-radius: 10px ;
+}
+.card:nth-child(2n) .card-content .btn:hover{
+    background-color: #9558df  ;
+    box-shadow: 0 0 10px 0 #9558df  , 0 0 20px 0 #9558df  ;
+    border: 1px solid #9558df  ;
+    padding: 10px 20px;
+    border-radius: 10px ;
+}
+.card:nth-child(3n) .card-content .btn:hover{
+    background-color: #df4c89 ;
+    box-shadow: 0 0 10px 0 #df4c89   , 0 0 20px 0 #df4c89  ;
+    border: 1px solid #df4c89  ;
+    padding: 10px 20px;
+    border-radius: 10px ;
+}
+.card:nth-child(4n) .card-content .btn:hover{
+    background-color: #d10643  ;
+    box-shadow: 0 0 10px 0 #d10643  , 0 0 20px 0 #d10643 ;
+    border: 1px solid #d10643 ;
+    padding: 10px 20px;
+    border-radius: 10px ;
+}
+
 
 
 /* card media query */
