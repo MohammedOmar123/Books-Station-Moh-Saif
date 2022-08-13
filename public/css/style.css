@@ -71,7 +71,7 @@ body {
         flex-direction: row-reverse;
         justify-content: space-around;
         align-items: center;
-        margin-top: 60px;
+        margin-top: 40px !important; 
     }
 
     .logo {
