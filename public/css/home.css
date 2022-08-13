@@ -56,8 +56,8 @@ header{
     gap: 15px;
     align-items: center;
     background-color: var(--secondaryColor);
-    padding: 10px 20px;
-    box-shadow:0px 4px 4px 0  #000000 ;
+    padding: 1rem 5rem;
+    box-shadow:0px 4px 5px 0  #222 ;
 }
 
 .search-form{
@@ -68,12 +68,13 @@ header{
 }
 
 .search-input{
-    width: 100%; 
-    padding: 6px;
-    border-radius: 5px;
-    border: 0ch;
-    background-color: #353535;
-    color: #808080;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-color: #353535;
+       border: 0;
+       color: #808080;
+       padding: 0 1rem;
 }
 .search-input::placeholder{
     color: #808080;
@@ -90,20 +91,38 @@ header{
     color: #808080;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 920px) {
     header .home-title{
         font-size: 1.3rem;
     }
     .search-form{
-        width: 320px 
+        width: 340px 
     }
 }
-@media (max-width: 500px) {
+@media (max-width: 655px) {
     header {
         flex-wrap: wrap;
         justify-content: center;
     }
 }
+@media (max-width: 450px) {
+    header .home-title{
+        font-size: 1.1rem;
+    }
+    .search-form {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .search-input::placeholder{
+        text-align: center;
+    }
+    .search-btn{
+        width: 100%;
+        padding: 6px;
+    }
+    
+}
+
 /* auto complete */
 .auto-complete-input{
     width: 100%;
@@ -126,7 +145,7 @@ header{
     background-color: #555;
     color: #fff;
     padding: 7px;
-
+    cursor: pointer;
 }
 .auto-Complete-container p:hover{
     background-color: #777;
@@ -160,12 +179,18 @@ header{
     padding: 5px;
     position: relative;
 }
+.card:hover img{
+    transform: rotate(0deg) scale(1.2);
+
+
+}
 .card img{
     transform: rotate(-3deg);
     position: relative;
     left:8px;
     width: 140px;
     height: 205px;
+    transition: all 0.3s ease-in-out;
 }
 .card-content{
     overflow-y: auto;

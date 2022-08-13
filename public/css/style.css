@@ -49,13 +49,14 @@ body {
     display: block;
     margin: 35px auto;
     padding: 0.6rem 1.7rem;
-    transition: all 0.3s;
+    transition: all  0.3s ease-in-out;
 }
 
 .btn-go:hover {
-    background-color: #000;
-    color: white;
-
+    outline: 2px solid #eee;
+    color: #eee;
+    background-color: inherit;
+  
 }
 
 .link {
