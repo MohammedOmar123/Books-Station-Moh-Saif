@@ -1,5 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+const { search } = require('../logic');
+
 const handler = (res, endpoint) => {
     
     fs.readFile(path.join(__dirname, '../books.json'), (err, data) => {
@@ -10,14 +12,8 @@ const handler = (res, endpoint) => {
             res.write('<h1> Internal Server Error ! <h1>');
             res.end();
         } else {
-            let counter = 0;
-            let filtered = JSON.parse(data).filter((ele) => {
-                if (value != '' && ele.bookName.toLowerCase().includes(value.toLowerCase()) && counter <= 10) {
-                    counter++;
-                    return true
-                }
-            })
-            res.writeHead(200, 'application/json');
+            let filtered = search(data,value)
+            res.writeHead(200, { 'Content-Type': 'application/json'});
             res.write(JSON.stringify(filtered));
             res.end();
         }
