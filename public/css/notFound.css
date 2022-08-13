@@ -38,13 +38,15 @@ h4 {
     text-transform: uppercase;
     display: block;
     margin: 35px auto;
-    padding: 0.6rem 1.7rem;
-    transition: all 0.3s;
+    padding: 0.6rem 3rem;
+    transition: all 0.3s ease-in-out;
+    border: 0ch;
 }
 
 .btn-go:hover {
-    background-color: #000;
-    color: white;
+    background-color: inherit;
+    color: #eee ;
+    outline: 1px solid #eee ;
 
 }
 .link {
